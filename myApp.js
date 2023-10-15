@@ -18,7 +18,8 @@ app.get("/json", function (req, res) {
         response = "Hello json";
     }
 
-    res.json({"message": response});
+    res.json({ "message": response });
+    //does it work?
 });
 
 app.use("/public", express.static(__dirname + "/public"));
