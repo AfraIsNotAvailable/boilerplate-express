@@ -11,7 +11,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 app.get("/", function (req, res) {
     absolutePath = __dirname + "/views/index.html";
@@ -28,6 +30,12 @@ app.get(
         res.send({ time: req.time });
     }
 );
+
+app.post("/name", (req, res) => {
+    let firstName = req.body.first;
+    let lastName = req.body.last;
+    res.json({ name: `${firstName} ${lastName}` });
+});
 
 app.get("/json", function (req, res) {
     response = "Hello json";
