@@ -1,5 +1,6 @@
 let express = require("express");
 const res = require("express/lib/response");
+const bodyParser = require("body-parser");
 let app = express();
 require("dotenv").config();
 
@@ -9,6 +10,8 @@ app.use(function (req, res, next) {
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
 });
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", function (req, res) {
     absolutePath = __dirname + "/views/index.html";
