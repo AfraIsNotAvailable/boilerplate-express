@@ -15,10 +15,6 @@ app.get("/", function (req, res) {
     res.sendFile(absolutePath);
 });
 
-app.get("/:word/echo", (req, res) => {
-    res.json({ echo: req.params.word });
-});
-
 app.get(
     "/now",
     function (req, res, next) {
@@ -41,6 +37,10 @@ app.get("/json", function (req, res) {
 
     res.json({ message: response });
     //does it work?
+});
+
+app.get("/:word/echo", (req, res) => {
+    res.json({ echo: req.params.word });
 });
 
 app.use("/public", express.static(__dirname + "/public"));
