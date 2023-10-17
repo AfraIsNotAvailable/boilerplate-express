@@ -39,6 +39,12 @@ app.get("/json", function (req, res) {
     //does it work?
 });
 
+app.get("/name", (req, res) => {
+	let firstName = req.query.first;
+	let lastName = req.query.last;
+	res.json({ name: `${firstName} ${lastName}` });
+})
+
 app.get("/:word/echo", (req, res) => {
     res.json({ echo: req.params.word });
 });
